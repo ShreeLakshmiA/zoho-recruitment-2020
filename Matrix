@@ -22,14 +22,15 @@ public class Matrix {
 
         int start = 1;
         int end = n;
-        for (int s=start, e=end, st=n*2; e > 1;st*=2,e--) {
+        for (int s=start, e=end, st=n*2; e >= 1;st+=(n*2),e--) {
+        	System.out.println();
         	print(s, e, n);
         	System.out.println();
         	e--;
         	s=st+1;
-        	printAgain(st, e, n);
-        	System.out.println();
-        	
+        	for (int count = 0;e >= 1 && count < 1; count++) {
+        		printAgain(st, e, n);
+        	}      	
         }
         
 	}
