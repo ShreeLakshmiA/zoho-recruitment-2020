@@ -1,0 +1,54 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Matrix {
+
+	public static void main(String[] args) {
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter any number: ");
+		
+		int n = 0;
+		
+		// This method reads the number provided using keyboard
+		try {
+			n = scanner.nextInt();
+		} catch (InputMismatchException e){
+			System.err.println("Input is not a number...");
+		}
+        
+        // Closing Scanner after the use
+        scanner.close();
+
+        int start = 1;
+        int end = n;
+        for (int s=start, e=end, st=n*2; e > 1;st*=2,e--) {
+        	print(s, e, n);
+        	System.out.println();
+        	e--;
+        	s=st+1;
+        	printAgain(st, e, n);
+        	System.out.println();
+        	
+        }
+        
+	}
+	
+	public static void print(int start, int end, int n) {
+		for (int i=start, count = 1; count <= n; i++, count++) {
+        	for (int j=end; j > 1; j--, end--) {
+        		System.out.print(" ");
+        	}
+        	System.out.print(i+" ");
+        }
+	}
+	public static void printAgain(int start, int end, int n) {
+		for (int i=start, count = 1; count <= n; i--, count++) {
+        	for (int j=end; j > 1; j--, end--) {
+        		System.out.print(" ");
+        	}
+        	System.out.print(i+" ");
+        }
+	}
+
+}
